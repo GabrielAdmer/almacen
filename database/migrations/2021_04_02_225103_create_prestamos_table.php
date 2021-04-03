@@ -14,7 +14,7 @@ class CreatePrestamosTable extends Migration
    public function up()
    {
       Schema::create('prestamos', function (Blueprint $table) {
-         $table->id('pre_id');
+         $table->id();
 
          $table->enum("pre_estado_prestamo", ['buen estado', 'regular', 'mal-estado'])->default('buen estado');
          $table->enum("pre_estado_devolucion", ['buen estado', 'regular', 'mal-estado'])->default('buen estado');
@@ -30,8 +30,8 @@ class CreatePrestamosTable extends Migration
 
 
 
-         $table->foreign("emp_id")->references("emp_id")->on("empleados")->cascadeOnDelete();
-         $table->foreign("proy_id")->references("proy_id")->on("proyectos")->cascadeOnDelete();
+         $table->foreign("emp_id")->references("id")->on("empleados")->cascadeOnDelete();
+         $table->foreign("proy_id")->references("id")->on("proyectos")->cascadeOnDelete();
          $table->foreign("usu_id")->references("id")->on("users")->cascadeOnDelete();
          $table->timestamps();
       });

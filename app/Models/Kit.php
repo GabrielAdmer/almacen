@@ -9,6 +9,11 @@ class Kit extends Model
 {
    use HasFactory;
 
+   protected $fillable = [
+      "kit_nombre", "kit_cantidad_piezas", "kit_descripcion"
+   ];
+
+
    public function productos()
    {
       return $this->hasMany(Producto::class);

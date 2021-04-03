@@ -14,7 +14,7 @@ class CreateKitsTable extends Migration
    public function up()
    {
       Schema::create('kits', function (Blueprint $table) {
-         $table->id('kit_id');
+         $table->id();
 
          $table->string('kit_nombre', 100);
          $table->integer('kit_cantidad_piezas');

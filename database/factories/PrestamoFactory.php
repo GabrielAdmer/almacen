@@ -31,8 +31,8 @@ class PrestamoFactory extends Factory
          'pre_description_devolucion' => $this->faker->word(4),
          'pre_estatus' => $this->faker->randomElement(["devuelto", "prestamo"]),
 
-         'emp_id' => Empleado::all()->random()->emp_id,
-         'proy_id' => Proyecto::all()->random()->proy_id,
+         'emp_id' => Empleado::all()->random()->id,
+         'proy_id' => Proyecto::all()->random()->id,
          'usu_id' => User::all()->random()->id,
       ];
    }

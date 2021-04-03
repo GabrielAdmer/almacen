@@ -14,7 +14,7 @@ class CreateProveedorsTable extends Migration
    public function up()
    {
       Schema::create('proveedors', function (Blueprint $table) {
-         $table->id('prov_id');
+         $table->id();
 
          $table->string('prov_nombre', 255);
 

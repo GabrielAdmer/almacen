@@ -14,7 +14,7 @@ class CreateAlmacensTable extends Migration
    public function up()
    {
       Schema::create('almacens', function (Blueprint $table) {
-         $table->id('alm_id');
+         $table->id();
 
          $table->string('alm_nombre', 50);
          $table->string('alm_ubicacion', 50)->nullable();

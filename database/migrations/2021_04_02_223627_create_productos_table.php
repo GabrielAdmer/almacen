@@ -14,7 +14,7 @@ class CreateProductosTable extends Migration
    public function up()
    {
       Schema::create('productos', function (Blueprint $table) {
-         $table->id('pro_id');
+         $table->id();
 
          $table->string('pro_nombre', 100);
          $table->decimal('pro_precio', 8, 2)->default(0);
@@ -30,10 +30,10 @@ class CreateProductosTable extends Migration
          $table->unsignedBigInteger("kit_id")->nullable();
          $table->unsignedBigInteger("prov_id")->nullable();
 
-         $table->foreign("alm_id")->references("alm_id")->on("almacens")->onDelete("cascade");
-         $table->foreign("cat_id")->references("cat_id")->on("categorias")->onDelete("cascade");
-         $table->foreign("kit_id")->references("kit_id")->on("kits")->onDelete("cascade");
-         $table->foreign("prov_id")->references("prov_id")->on("proveedors")->onDelete("cascade");
+         $table->foreign("alm_id")->references("id")->on("almacens")->onDelete("cascade");
+         $table->foreign("cat_id")->references("id")->on("categorias")->onDelete("cascade");
+         $table->foreign("kit_id")->references("id")->on("kits")->onDelete("cascade");
+         $table->foreign("prov_id")->references("id")->on("proveedors")->onDelete("cascade");
 
          $table->timestamps();
       });
