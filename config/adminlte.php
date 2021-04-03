@@ -246,8 +246,18 @@ return [
          'icon' => 'fas fa-fw fa-user',
       ],
       [
-         'text' => 'change_password',
-         'url'  => 'admin/settings',
+         'text' => 'Almacenes',
+         'url'  => 'admin/almacens',
+         'icon' => 'fas fa-fw fa-lock',
+      ],
+      [
+         'text' => 'Categorias',
+         'url'  => 'admin/categorias',
+         'icon' => 'fas fa-fw fa-lock',
+      ],
+      [
+         'text' => 'Proveedores',
+         'url'  => 'admin/proveedor',
          'icon' => 'fas fa-fw fa-lock',
       ],
       [

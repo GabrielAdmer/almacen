@@ -25,10 +25,10 @@ class CreateProductosTable extends Migration
          $table->enum("pro_protocolo_prueba", [0, 1])->default(0);
 
 
-         $table->unsignedBigInteger("alm_id")->nullable();
-         $table->unsignedBigInteger("cat_id")->nullable();
-         $table->unsignedBigInteger("kit_id")->nullable();
-         $table->unsignedBigInteger("prov_id")->nullable();
+         $table->unsignedBigInteger("alm_id");
+         $table->unsignedBigInteger("cat_id");
+         $table->unsignedBigInteger("kit_id");
+         $table->unsignedBigInteger("prov_id");
 
          $table->foreign("alm_id")->references("id")->on("almacens")->onDelete("cascade");
          $table->foreign("cat_id")->references("id")->on("categorias")->onDelete("cascade");

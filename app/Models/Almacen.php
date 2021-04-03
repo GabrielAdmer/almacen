@@ -9,6 +9,10 @@ class Almacen extends Model
 {
    use HasFactory;
 
+   protected $fillable = [
+      "alm_nombre", "alm_ubicacion"
+   ];
+
    //relacion uno a muchos
    public function productos()
    {
