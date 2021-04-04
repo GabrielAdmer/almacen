@@ -39,6 +39,7 @@
                         <th>kit</th>
                         <th>almacen</th>
                         <th>categoria</th>
+                        <th>Estatus</th>
                         <th>Ver</th>
                         <th>Editar</th>
                         <th>Eliminar</th>
@@ -53,6 +54,13 @@
                             <td>{{ $productos[$i]->kit_nombre }}</td>
                             <td>{{ $productos[$i]->alm_nombre }}</td>
                             <td>{{ $productos[$i]->cat_nombre }}</td>
+                            <td>
+                               @if ($productos[$i]->pro_estatus === '0')
+                                 {{ "si" }}
+                                 @else
+                                 {{ "no" }}
+                               @endif
+                            </td>
                             <td width="10px">
                                 <a class="btn btn-sm btn-info" href="{{route("admin.productos.show",$productos[$i]->id)}}">
                                 Show
