@@ -9,7 +9,6 @@ use App\Models\Kit;
 use App\Models\Producto;
 use App\Models\Proveedor;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class ProductoController extends Controller
 {
@@ -20,7 +19,8 @@ class ProductoController extends Controller
     */
    public function index()
    {
-      $productos = DB::select('call mostrar_productos()');
+
+      $productos = Producto::latest()->get();
       return view("admin.productos.index", compact('productos'));
    }
 
@@ -66,7 +66,7 @@ class ProductoController extends Controller
     */
    public function show(Producto $producto)
    {
-      //
+      return $producto->prestamos;
    }
 
    /**

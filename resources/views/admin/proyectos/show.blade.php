@@ -7,16 +7,7 @@
 @stop
 
 @section('content')
-   <div class="card">
-      <div class="card-body">
-         <h1>{{ $categoria->cat_nombre }}</h1>
-         <ul>
-            @foreach ($categoria->productos as $producto)
-                <li>{{ $producto->pro_nombre }}</li>
-            @endforeach
-         </ul>
-      </div>
-   </div>
+    <p>Welcome to this beautiful admin panel.</p>
 @stop
 
 @section('css')

@@ -18,16 +18,16 @@
                   </tr>
                </thead>
                <tbody>
-                   @for ($i = 0; $i < count($productos); $i++)
-                        <tr>
+                  @foreach ($proveedor->productos as $producto)
+                       <tr>
                            <td>
-                              {{ $productos[$i]->pro_nombre }}
+                              {{ $producto->pro_nombre }}
                            </td>
                              <td>
-                              {{ $productos[$i]->pro_precio }}
+                              {{ $producto->pro_precio }}
                            </td>
                         </tr>
-                  @endfor
+                  @endforeach
                </tbody>
             </table>
          </div>

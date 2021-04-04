@@ -55,8 +55,7 @@ class CategoriaController extends Controller
     */
    public function show(Categoria $categoria)
    {
-      $productos = DB::select("call mostrar_producto_categoria(?)", array($categoria->id));
-      return view('admin.categorias.show', compact('productos', 'categoria'));
+      return view('admin.categorias.show', compact('categoria'));
    }
 
    /**

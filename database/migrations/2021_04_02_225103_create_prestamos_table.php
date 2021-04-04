@@ -17,22 +17,22 @@ class CreatePrestamosTable extends Migration
          $table->id();
 
          $table->enum("pre_estado_prestamo", ['buen estado', 'regular', 'mal-estado'])->default('buen estado');
-         $table->enum("pre_estado_devolucion", ['buen estado', 'regular', 'mal-estado'])->default('buen estado');
+         $table->enum("pre_estado_devolucion", ['buen estado', 'regular', 'mal-estado'])->nullable();
 
          $table->text('pre_description_prestamo')->nullable();
          $table->text('pre_description_devolucion')->nullable();
 
          $table->enum('pre_estatus', ['devuelto', 'prestamo'])->default('devuelto');
 
-         $table->unsignedBigInteger("emp_id");
-         $table->unsignedBigInteger("proy_id");
-         $table->unsignedBigInteger("usu_id");
+         $table->unsignedBigInteger("empleado_id");
+         $table->unsignedBigInteger("proyecto_id");
+         $table->unsignedBigInteger("user_id");
 
 
 
-         $table->foreign("emp_id")->references("id")->on("empleados")->cascadeOnDelete();
-         $table->foreign("proy_id")->references("id")->on("proyectos")->cascadeOnDelete();
-         $table->foreign("usu_id")->references("id")->on("users")->cascadeOnDelete();
+         $table->foreign("empleado_id")->references("id")->on("empleados")->cascadeOnDelete();
+         $table->foreign("proyecto_id")->references("id")->on("proyectos")->cascadeOnDelete();
+         $table->foreign("user_id")->references("id")->on("users")->cascadeOnDelete();
          $table->timestamps();
       });
    }

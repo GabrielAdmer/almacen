@@ -9,6 +9,10 @@ class Prestamo extends Model
 {
    use HasFactory;
 
+   protected $guarded = [
+      "id", "created_at", "updated_at"
+   ];
+
 
    //relacion de muchos a uno
    public function empleado()

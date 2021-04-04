@@ -38,8 +38,7 @@ class AlmacenController extends Controller
 
    public function show(Almacen $almacen)
    {
-      $productos = DB::select("call mostrar_producto_almacen(?)", array($almacen->id));
-      return view('admin.almacens.show', compact('productos', 'almacen'));
+      return view('admin.almacens.show', compact('almacen'));
    }
 
 

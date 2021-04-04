@@ -10,13 +10,13 @@
       <div class="card">
          <div class="card-body">
             <h1>{{ $almacen->alm_nombre }}</h1>
-               @for ($i = 0; $i < count($productos); $i++)
-                   <ul>
-                      <li>
-                          <p>{{ $productos[$i]->pro_nombre }}</p>
-                      </li>
-                   </ul>
-               @endfor
+
+             <ul>
+               @foreach ($almacen->productos as $producto)
+                  <li> {{ $producto->pro_nombre }} </li>
+               @endforeach
+            </ul>
+              
          </div>
       </div>
 @stop

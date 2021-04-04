@@ -4,7 +4,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Listado de Productos</h1>
+    <h1>Listado de Proyectos</h1>
 @stop
 
 @section('css')
@@ -24,7 +24,7 @@
     <div class="card">
 
         <div class="card-header">
-            <a class="btn btn btn-dark" href="{{route("admin.productos.create")}}">Agregar Productos</a>
+            <a class="btn btn btn-dark" href="{{route("admin.proyectos.create")}}">Agregar Proyectos</a>
          </div>
          
         <div class="card-body">
@@ -36,50 +36,45 @@
                     <tr>
                         <th>Id</th>
                         <th>Nombre</th>
-                        <th>kit</th>
-                        <th>almacen</th>
-                        <th>categoria</th>
-                        <th>Estatus</th>
-                        <th>Ver</th>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
+                        <th>Ubicacion</th>
+                        <th>status</th>
                     </tr>
                 </thead>
                 <tbody>
-
-                     @foreach ($productos as $producto)
-                         <tr>
-                            <td> {{ $producto->id }}</td>
-                            <td> {{ $producto->pro_nombre }}</td>
-                            <td> {{ $producto->kit->kit_nombre }}</td>
-                            <td> {{ $producto->almacen->alm_nombre }}</td>
-                            <td> {{ $producto->categoria->cat_nombre }}</td>
+                    
+                    @for ($i = 0; $i < count($proyectos) ; $i++)
+                        <tr>
+                            <td>{{ $proyectos[$i]->id }}</td>
+                            <td>{{ $proyectos[$i]->proy_nombre }}</td>
+                            <td>{{ $proyectos[$i]->proy_ubicacion }}</td>
                             <td>
-                               @if ($producto->pro_estatus === '0')
-                                 {{ "si" }}
-                                 @else
-                                 {{ "no" }}
-                               @endif
+                                @if ($proyectos[$i]->proy_estatus === "1")
+                                    En proceso
+                                @else
+                                    Terminado
+                                @endif 
                             </td>
                             <td width="10px">
-                                <a class="btn btn-sm btn-info" href="{{route("admin.productos.show",$producto)}}">
+                                <a class="btn btn-sm btn-info" href="{{route("admin.proyectos.show",$proyectos[$i]->id)}}">
                                 Show
                                 </a>
                             </td>
                             <td width="10px">
-                                <a class="btn btn-sm btn-warning" href="{{route("admin.productos.edit",$producto)}}">
+                                <a class="btn btn-sm btn-warning" href="{{route("admin.proyectos.edit",$proyectos[$i]->id)}}">
                                 Editar
                                 </a>
                             </td>
                             <td width="10px">
-                                <form action="{{route("admin.productos.destroy",$producto )}}" method="POST" >
+                                <form action="{{route("admin.proyectos.destroy",$proyectos[$i]->id)}}" method="POST" >
                                     @csrf
                                     @method("delete")
                                     <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Desea eliminar ? ...')" >Eliminar</button>
                                 </form>
                             </td>
-                         </tr>
-                     @endforeach
+                        </tr>
+
+                     
+                    @endfor
 
                 </tbody>
             </table>

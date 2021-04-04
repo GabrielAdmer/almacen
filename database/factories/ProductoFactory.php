@@ -32,10 +32,10 @@ class ProductoFactory extends Factory
          'pro_descripcion' => $this->faker->word(4),
          'pro_protocolo_prueba' => $this->faker->randomElement(["0", "1"]),
          'pro_estatus' => $this->faker->randomElement(["0", "1"]),
-         'alm_id' => Almacen::all()->random()->id,
-         'cat_id' => Categoria::all()->random()->id,
+         'almacen_id' => Almacen::all()->random()->id,
+         'categoria_id' => Categoria::all()->random()->id,
          'kit_id' => Kit::all()->random()->id,
-         'prov_id' => Proveedor::all()->random()->id,
+         'proveedor_id' => Proveedor::all()->random()->id,
       ];
    }
 }

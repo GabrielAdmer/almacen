@@ -36,6 +36,7 @@ class KitController extends Controller
 
    public function show(Kit $kit)
    {
+
       return view('admin.kit.show', compact('kit'));
    }
 

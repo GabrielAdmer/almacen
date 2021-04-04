@@ -266,6 +266,21 @@ return [
          'icon' => 'fas fa-fw fa-lock',
       ],
       [
+         'text' => 'Empleados',
+         'url'  => 'admin/empleados',
+         'icon' => 'fas fa-fw fa-lock',
+      ],
+      [
+         'text' => 'Proyectos',
+         'url'  => 'admin/proyectos',
+         'icon' => 'fas fa-fw fa-lock',
+      ],
+      [
+         'text' => 'Prestamos',
+         'url'  => 'admin/prestamos',
+         'icon' => 'fas fa-fw fa-lock',
+      ],
+      [
          'text'    => 'multilevel',
          'icon'    => 'fas fa-fw fa-share',
          'submenu' => [

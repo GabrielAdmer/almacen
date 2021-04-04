@@ -56,8 +56,7 @@ class ProveedorController extends Controller
     */
    public function show(Proveedor $proveedor)
    {
-      $productos = DB::select("call mostrar_producto_proveedor(?)", array($proveedor->id));
-      return view('admin.proveedores.show', compact('productos', 'proveedor'));
+      return view('admin.proveedores.show', compact('proveedor'));
    }
 
    /**

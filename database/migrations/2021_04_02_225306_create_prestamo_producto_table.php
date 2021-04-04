@@ -17,7 +17,7 @@ class CreatePrestamoProductoTable extends Migration
          $table->id();
 
          $table->unsignedBigInteger('prestamo_id');
-         $table->unsignedBigInteger('producto_id');
+         $table->unsignedBigInteger('producto_id')->nullable();
 
          $table->foreign("prestamo_id")->references("id")->on("prestamos")->cascadeOnDelete();
          $table->foreign("producto_id")->references("id")->on("productos")->cascadeOnDelete();
