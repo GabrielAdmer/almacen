@@ -33,7 +33,8 @@
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Nombre</th>
+                    <th>Nombre Empleado</th>
+                    <th>Estado</th>
                     <th>Creado</th>
                     <th>Actulizado</th>
                     <th>Ver</th>
@@ -47,6 +48,7 @@
                     <tr>
                         <td>{{ $prestamo->id }}</td>
                         <td>{{ $prestamo->empleado->emp_nombre }}</td>
+                        <td>{{ $prestamo->pre_estatus }}</td>
                         <td>{{ $prestamo->created_at }}</td>
                         <td>{{ $prestamo->updated_at }}</td>
                         <td width="10px">
