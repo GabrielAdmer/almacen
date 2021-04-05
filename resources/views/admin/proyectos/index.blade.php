@@ -55,21 +55,27 @@
                                 @endif 
                             </td>
                             <td width="10px">
-                                <a class="btn btn-sm btn-info" href="{{route("admin.proyectos.show",$proyectos[$i]->id)}}">
-                                Show
-                                </a>
+                              @can("admin.proyectos.show")
+                                  <a class="btn btn-sm btn-info" href="{{route("admin.proyectos.show",$proyectos[$i]->id)}}">
+                                    Show
+                                 </a>
+                              @endcan
                             </td>
                             <td width="10px">
-                                <a class="btn btn-sm btn-warning" href="{{route("admin.proyectos.edit",$proyectos[$i]->id)}}">
+                                @can("admin.proyectos.edit")
+                                   <a class="btn btn-sm btn-warning" href="{{route("admin.proyectos.edit",$proyectos[$i]->id)}}">
                                 Editar
                                 </a>
+                                @endcan
                             </td>
                             <td width="10px">
-                                <form action="{{route("admin.proyectos.destroy",$proyectos[$i]->id)}}" method="POST" >
+                               @can("admin.proyectos.destroy")
+                                   <form action="{{route("admin.proyectos.destroy",$proyectos[$i]->id)}}" method="POST" >
                                     @csrf
                                     @method("delete")
                                     <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Desea eliminar ? ...')" >Eliminar</button>
                                 </form>
+                               @endcan
                             </td>
                         </tr>
 

@@ -12,6 +12,15 @@ use Illuminate\Http\Request;
 
 class PrestamoController extends Controller
 {
+
+   public function __construct()
+   {
+      $this->middleware('can:admin.prestamos.index')->only('index');
+      $this->middleware('can:admin.prestamos.create')->only('create');
+      $this->middleware('can:admin.prestamos.destroy')->only('destroy');
+      $this->middleware('can:admin.prestamos.show')->only('show');
+      $this->middleware('can:admin.prestamos.edit')->only('edit', 'update');
+   }
    /**
     * Display a listing of the resource.
     *

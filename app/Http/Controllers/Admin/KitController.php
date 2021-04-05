@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 
 class KitController extends Controller
 {
+   public function __construct()
+   {
+      $this->middleware('can:admin.kits.index')->only('index');
+      $this->middleware('can:admin.kits.create')->only('create');
+      $this->middleware('can:admin.kits.destroy')->only('destroy');
+      $this->middleware('can:admin.kits.show')->only('show');
+      $this->middleware('can:admin.kits.edit')->only('edit', 'update');
+   }
 
    public function index()
    {

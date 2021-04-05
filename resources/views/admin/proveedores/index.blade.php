@@ -36,18 +36,28 @@
                    <tr>
                       <td>{{ $proveedor->id }}</td>
                       <td>{{ $proveedor->prov_nombre }}</td>
-                      <td width="100px"> <a class="btn btn-success btn-sm" href="{{ route('admin.proveedor.show',$proveedor) }}">Ver</a> </td>
-                      <td width="100px"> <a class="btn btn-success btn-sm" href="{{ route('admin.proveedor.edit',$proveedor) }}">Editar</a> </td>
+                      <td width="100px">
+                         @can('admin.proveedor.show')
+                             <a class="btn btn-success btn-sm" href="{{ route('admin.proveedor.show',$proveedor) }}">Ver</a> 
+                         @endcan
+                      </td>
+                      <td width="100px"> 
+                         @can('admin.proveedor.edit')
+                            <a class="btn btn-success btn-sm" href="{{ route('admin.proveedor.edit',$proveedor) }}">Editar</a>
+                         @endcan 
+                     </td>
 
 
                       <td width="100px"> 
-                           <form action="{{route("admin.proveedor.destroy",$proveedor)}}" method="POST" >
-                              @csrf
-                              @method("delete")
-                              <input type="submit" value="Eliminar" class="btn btn-sm btn-danger"
-                                       onclick="return confirm('Desaea eliminar ? ..')"
-                              >
-                           </form>
+                          @can("admin.proveedor.destroy")
+                              <form action="{{route("admin.proveedor.destroy",$proveedor)}}" method="POST" >
+                                 @csrf
+                                 @method("delete")
+                                 <input type="submit" value="Eliminar" class="btn btn-sm btn-danger"
+                                          onclick="return confirm('Desaea eliminar ? ..')"
+                                 >
+                              </form>
+                          @endcan
                      </td>
 
                    </tr>

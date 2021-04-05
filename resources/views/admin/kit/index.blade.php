@@ -35,21 +35,31 @@
             <tbody>
                @foreach ($kits as $kit)
                    <tr>
-                      <td>{{ $kit->id }}</td>
-                      <td>{{ $kit->kit_nombre }}</td>
-                      <td>{{ $kit->kit_cantidad_piezas }}</td>
-                      <td width="100px"> <a class="btn btn-success btn-sm" href="{{ route('admin.kits.show',$kit) }}">Ver</a> </td>
-                      <td width="100px"> <a class="btn btn-success btn-sm" href="{{ route('admin.kits.edit',$kit) }}">Editar</a> </td>
+                     <td>{{ $kit->id }}</td>
+                     <td>{{ $kit->kit_nombre }}</td>
+                     <td>{{ $kit->kit_cantidad_piezas }}</td>
+                     <td width="100px"> 
+                        @can('admin.kits.show')
+                           <a class="btn btn-success btn-sm" href="{{ route('admin.kits.show',$kit) }}">Ver</a> 
+                        @endcan
+                     </td>
+                     <td width="100px">
+                          @can('admin.kits.edit')
+                              <a class="btn btn-success btn-sm" href="{{ route('admin.kits.edit',$kit) }}">Editar</a>
+                          @endcan 
+                     </td>
 
 
                       <td width="100px"> 
-                           <form action="{{route("admin.kits.destroy",$kit)}}" method="POST" >
-                              @csrf
-                              @method("delete")
-                              <input type="submit" value="Eliminar" class="btn btn-sm btn-danger"
-                                       onclick="return confirm('Desaea eliminar ? ..')"
-                              >
-                           </form>
+                          @can("admin.kits.destroy")
+                              <form action="{{route("admin.kits.destroy",$kit)}}" method="POST" >
+                                 @csrf
+                                 @method("delete")
+                                 <input type="submit" value="Eliminar" class="btn btn-sm btn-danger"
+                                          onclick="return confirm('Desaea eliminar ? ..')"
+                                 >
+                              </form>
+                          @endcan
                      </td>
 
                    </tr>

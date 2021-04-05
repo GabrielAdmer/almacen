@@ -9,6 +9,14 @@ use Illuminate\Support\Facades\DB;
 
 class AlmacenController extends Controller
 {
+   public function __construct()
+   {
+      $this->middleware('can:admin.almacens.index')->only('index');
+      $this->middleware('can:admin.almacens.create')->only('create');
+      $this->middleware('can:admin.almacens.destroy')->only('destroy');
+      $this->middleware('can:admin.almacens.show')->only('show');
+      $this->middleware('can:admin.almacens.edit')->only('edit', 'update');
+   }
 
    public function index()
    {

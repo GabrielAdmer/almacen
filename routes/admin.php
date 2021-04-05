@@ -9,9 +9,14 @@ use App\Http\Controllers\Admin\PrestamoController;
 use App\Http\Controllers\Admin\ProductoController;
 use App\Http\Controllers\Admin\ProveedorController;
 use App\Http\Controllers\Admin\ProyectoController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('admin', [HomeController::class, 'index'])->name('admin.home');
+Route::get('admin', [HomeController::class, 'index'])->middleware('can:admin.home')->name('admin.home');
+
+Route::resource('admin/users', UserController::class)
+   ->only('index', 'edit', 'update')
+   ->names('admin.users');
 
 Route::resource('admin/kits', KitController::class)->names('admin.kits');
 Route::resource('admin/almacens', AlmacenController::class)->names('admin.almacens');

@@ -8,6 +8,16 @@ use Illuminate\Http\Request;
 
 class EmpleadoController extends Controller
 {
+
+   public function __construct()
+   {
+      $this->middleware('can:admin.empleados.index')->only('index');
+      $this->middleware('can:admin.empleados.create')->only('create');
+      $this->middleware('can:admin.empleados.destroy')->only('destroy');
+      $this->middleware('can:admin.empleados.show')->only('show');
+      $this->middleware('can:admin.empleados.edit')->only('edit', 'update');
+   }
+
    /**
     * Display a listing of the resource.
     *

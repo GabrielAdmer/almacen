@@ -17,7 +17,9 @@
     <div class="card">
 
         <div class="card-header">
-            <a class="btn btn btn-dark" href="{{route("admin.almacens.create")}}">Agregar Almacen</a>
+           @can('admin.almacens.create')
+               <a class="btn btn btn-dark" href="{{route("admin.almacens.create")}}">Agregar Almacen</a>
+           @endcan
          </div>
          
         <div class="card-body">
@@ -28,9 +30,8 @@
                         <th>Id</th>
                         <th>Nombre</th>
                         <th>Ubicacion</th>
-                        <th>Ver</th>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
+                        <th span="3"></th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -41,21 +42,27 @@
                             <td>{{ $almacen->alm_nombre }}</td>
                             <td>{{ $almacen->alm_ubicacion }}</td>
                              <td width="10px">
-                                <a class="btn btn-sm btn-warning" href="{{route("admin.almacens.show",$almacen)}}">
+                               @can('admin.almacens.show')
+                                   <a class="btn btn-sm btn-warning" href="{{route("admin.almacens.show",$almacen)}}">
                                     Ver
-                                </a>
+                                    </a>
+                               @endcan
                             </td>
                             <td width="10px">
-                                <a class="btn btn-sm btn-warning" href="{{route("admin.almacens.edit",$almacen)}}">
+                               @can('admin.almacens.edit')
+                                   <a class="btn btn-sm btn-warning" href="{{route("admin.almacens.edit",$almacen)}}">
                                     Editar
                                 </a>
+                               @endcan
                             </td>
                             <td width="10px">
-                                <form action="{{route("admin.almacens.destroy",$almacen)}}" method="POST" >
+                                @can('admin.almacens.destroy')
+                                   <form action="{{route("admin.almacens.destroy",$almacen)}}" method="POST" >
                                     @csrf
                                     @method("delete")
                                     <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Desea eliminar ? ...')" >Eliminar</button>
                                 </form>
+                                @endcan
                             </td>
                        </tr>
                     @endforeach

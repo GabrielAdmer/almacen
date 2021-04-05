@@ -21,12 +21,16 @@ class DatabaseSeeder extends Seeder
     */
    public function run()
    {
-      // \App\Models\User::factory(10)->create();
+
+      $this->call(RolSeeder::class);
+
+      \App\Models\User::factory(10)->create();
+
       User::create([
          'name' => 'gabriel',
          'email' => 'g@hotmail.com',
          'password' => bcrypt('12345678')
-      ]);
+      ])->assignRole('Administrador');
 
       Categoria::factory(4)->create();
       Almacen::factory(3)->create();

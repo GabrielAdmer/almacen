@@ -238,47 +238,68 @@ return [
          'text'        => 'Dashboard',
          'url'         => 'admin',
          'icon'        => 'far fa-fw fa-file',
+         'can'        => 'admin.home',
+
       ],
+
+      [
+         'text' => 'Usuarios',
+         'url'  => 'admin/users',
+         'icon' => 'fas fa-fw fa-users',
+         'can'  => 'admin.users.index',
+      ],
+
       ['header' => 'Administrador'],
       [
          'text' => 'Kit',
          'url'  => 'admin/kits',
          'icon' => 'fas fa-fw fa-user',
+         'can'  => 'admin.kits.index',
       ],
       [
          'text' => 'Almacenes',
          'url'  => 'admin/almacens',
          'icon' => 'fas fa-fw fa-lock',
+         'can'  => 'admin.almacens.index',
       ],
       [
          'text' => 'Categorias',
          'url'  => 'admin/categorias',
          'icon' => 'fas fa-fw fa-lock',
+         'can'  => 'admin.categorias.index',
       ],
       [
          'text' => 'Proveedores',
          'url'  => 'admin/proveedor',
          'icon' => 'fas fa-fw fa-lock',
+         'can'  => 'admin.proveedor.index',
       ],
       [
          'text' => 'Productos',
          'url'  => 'admin/productos',
          'icon' => 'fas fa-fw fa-lock',
+         'can'  => 'admin.productos.index',
       ],
       [
          'text' => 'Empleados',
          'url'  => 'admin/empleados',
          'icon' => 'fas fa-fw fa-lock',
+         'can'  => 'admin.empleados.index',
       ],
       [
          'text' => 'Proyectos',
          'url'  => 'admin/proyectos',
          'icon' => 'fas fa-fw fa-lock',
+         'can'  => 'admin.proyectos.index',
       ],
+
+      ['header' => 'Prestamos'],
+
       [
          'text' => 'Prestamos',
          'url'  => 'admin/prestamos',
          'icon' => 'fas fa-fw fa-lock',
+         'can'  => 'admin.prestamos.index',
       ],
       [
          'text'    => 'multilevel',

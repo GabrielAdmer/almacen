@@ -9,6 +9,14 @@ use Illuminate\Support\Facades\DB;
 
 class ProveedorController extends Controller
 {
+   public function __construct()
+   {
+      $this->middleware('can:admin.proveedor.index')->only('index');
+      $this->middleware('can:admin.proveedor.create')->only('create');
+      $this->middleware('can:admin.proveedor.destroy')->only('destroy');
+      $this->middleware('can:admin.proveedor.show')->only('show');
+      $this->middleware('can:admin.proveedor.edit')->only('edit', 'update');
+   }
    /**
     * Display a listing of the resource.
     *

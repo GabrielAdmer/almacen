@@ -37,21 +37,27 @@
                             <td>{{ $categoria->id }}</td>
                             <td>{{ $categoria->cat_nombre }}</td>
                            <td width="10px">
-                              <a class="btn btn-sm btn-warning" href="{{route("admin.categorias.show",$categoria)}}">
-                              Ver
-                              </a>
+                              @can('admin.categorias.show')
+                                 <a class="btn btn-sm btn-warning" href="{{route("admin.categorias.show",$categoria)}}">
+                                    Ver
+                                  </a>
+                              @endcan
                            </td>
                             <td width="10px">
-                                <a class="btn btn-sm btn-warning" href="{{route("admin.categorias.edit",$categoria)}}">
-                                Editar
-                                </a>
+                                @can('admin.categorias.edit')
+                                     <a class="btn btn-sm btn-warning" href="{{route("admin.categorias.edit",$categoria)}}">
+                                       Editar
+                                    </a>
+                                @endcan
                             </td>
                             <td width="10px">
-                                <form action="{{route("admin.categorias.destroy",$categoria)}}" method="POST" >
-                                    @csrf
-                                    @method("delete")
-                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Desea eliminar ? ...')" >Eliminar</button>
-                                </form>
+                               @can('admin.categorias.destroy')
+                                   <form action="{{route("admin.categorias.destroy",$categoria)}}" method="POST" >
+                                       @csrf
+                                       @method("delete")
+                                       <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Desea eliminar ? ...')" >Eliminar</button>
+                                    </form>
+                               @endcan
                             </td>
                        </tr>
                     @endforeach

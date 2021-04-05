@@ -12,6 +12,15 @@ use Illuminate\Http\Request;
 
 class ProductoController extends Controller
 {
+   public function __construct()
+   {
+      $this->middleware('can:admin.productos.index')->only('index');
+      $this->middleware('can:admin.productos.create')->only('create');
+      $this->middleware('can:admin.productos.destroy')->only('destroy');
+      $this->middleware('can:admin.productos.show')->only('show');
+      $this->middleware('can:admin.productos.edit')->only('edit', 'update');
+   }
+
    /**
     * Display a listing of the resource.
     *

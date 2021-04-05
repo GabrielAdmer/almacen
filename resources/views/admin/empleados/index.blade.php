@@ -44,21 +44,27 @@
                             <td>{{ $empleados[$i]->emp_app_materno }}</td>
                             <td>{{ $empleados[$i]->emp_lugar }}</td>
                             <td width="10px">
-                                <a class="btn btn-sm btn-info" href="{{route("admin.empleados.show",$empleados[$i]->id)}}">
-                                Ver..
-                                </a>
+                               @can("admin.empleados.show")
+                                     <a class="btn btn-sm btn-info" href="{{route("admin.empleados.show",$empleados[$i]->id)}}">
+                                       Ver..
+                                    </a>
+                               @endcan
                             </td>
                             <td width="10px">
-                                <a class="btn btn-sm btn-warning" href="{{route("admin.empleados.edit",$empleados[$i]->id)}}">
-                                Editar
-                                </a>
+                                @can("admin.empleados.edit")
+                                    <a class="btn btn-sm btn-warning" href="{{route("admin.empleados.edit",$empleados[$i]->id)}}">
+                                       Editar
+                                    </a>
+                                @endcan
                             </td>
                             <td width="10px">
-                                <form action="{{route("admin.empleados.destroy",$empleados[$i]->id)}}" method="POST" >
-                                    @csrf
-                                    @method("delete")
-                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Desea eliminar ? ...')" >Eliminar</button>
-                                </form>
+                               @can("admin.empleados.destroy")
+                                    <form action="{{route("admin.empleados.destroy",$empleados[$i]->id)}}" method="POST" >
+                                       @csrf
+                                       @method("delete")
+                                       <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Desea eliminar ? ...')" >Eliminar</button>
+                                    </form>
+                               @endcan
                             </td>
                         </tr>
 

@@ -75,8 +75,10 @@
 
                 <a href="{{ route("profile.show") }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
                 
-                
-                <a href="{{ route("admin.home") }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Dashboard</a>
+
+                @can('admin.home')
+                   <a href="{{ route("admin.home") }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Dashboard</a>
+                @endcan
 
                 <form method="POST" action="{{ route('logout') }}">
                   @csrf

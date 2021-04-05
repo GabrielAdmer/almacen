@@ -62,21 +62,27 @@
                                @endif
                             </td>
                             <td width="10px">
-                                <a class="btn btn-sm btn-info" href="{{route("admin.productos.show",$producto)}}">
-                                Show
-                                </a>
+                               @can("admin.productos.show")
+                                    <a class="btn btn-sm btn-info" href="{{route("admin.productos.show",$producto)}}">
+                                       Show
+                                    </a>
+                               @endcan
                             </td>
                             <td width="10px">
-                                <a class="btn btn-sm btn-warning" href="{{route("admin.productos.edit",$producto)}}">
-                                Editar
-                                </a>
+                                @can("admin.productos.edit")
+                                   <a class="btn btn-sm btn-warning" href="{{route("admin.productos.edit",$producto)}}">
+                                    Editar
+                                    </a>
+                                @endcan
                             </td>
                             <td width="10px">
-                                <form action="{{route("admin.productos.destroy",$producto )}}" method="POST" >
-                                    @csrf
-                                    @method("delete")
-                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Desea eliminar ? ...')" >Eliminar</button>
-                                </form>
+                                @can("admin.productos.destroy")
+                                    <form action="{{route("admin.productos.destroy",$producto )}}" method="POST" >
+                                       @csrf
+                                       @method("delete")
+                                       <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Desea eliminar ? ...')" >Eliminar</button>
+                                    </form>
+                                @endcan
                             </td>
                          </tr>
                      @endforeach

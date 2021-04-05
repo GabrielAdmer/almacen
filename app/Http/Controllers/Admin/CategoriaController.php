@@ -9,33 +9,30 @@ use Illuminate\Support\Facades\DB;
 
 class CategoriaController extends Controller
 {
-   /**
-    * Display a listing of the resource.
-    *
-    * @return \Illuminate\Http\Response
-    */
+
+   public function __construct()
+   {
+      $this->middleware('can:admin.categorias.index')->only('index');
+      $this->middleware('can:admin.categorias.create')->only('create');
+      $this->middleware('can:admin.categorias.destroy')->only('destroy');
+      $this->middleware('can:admin.categorias.show')->only('show');
+      $this->middleware('can:admin.categorias.edit')->only('edit', 'update');
+   }
+
+
    public function index()
    {
       $categorias = Categoria::latest('id')->get();
       return view('admin.categorias.index', compact('categorias'));
    }
 
-   /**
-    * Show the form for creating a new resource.
-    *
-    * @return \Illuminate\Http\Response
-    */
+
    public function create()
    {
       return view('admin.categorias.create');
    }
 
-   /**
-    * Store a newly created resource in storage.
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
-    */
+
    public function store(Request $request)
    {
       $request->validate([
@@ -47,35 +44,18 @@ class CategoriaController extends Controller
       return redirect()->route("admin.categorias.index")->with("info", "Creado con éxito");
    }
 
-   /**
-    * Display the specified resource.
-    *
-    * @param  \App\Models\Categoria  $categoria
-    * @return \Illuminate\Http\Response
-    */
+
    public function show(Categoria $categoria)
    {
       return view('admin.categorias.show', compact('categoria'));
    }
 
-   /**
-    * Show the form for editing the specified resource.
-    *
-    * @param  \App\Models\Categoria  $categoria
-    * @return \Illuminate\Http\Response
-    */
    public function edit(Categoria $categoria)
    {
       return view('admin.categorias.edit', compact('categoria'));
    }
 
-   /**
-    * Update the specified resource in storage.
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @param  \App\Models\Categoria  $categoria
-    * @return \Illuminate\Http\Response
-    */
+
    public function update(Request $request, Categoria $categoria)
    {
       $request->validate([
@@ -87,12 +67,7 @@ class CategoriaController extends Controller
       return redirect()->route("admin.categorias.index", $categoria)->with("info", "Actulizado con éxito");
    }
 
-   /**
-    * Remove the specified resource from storage.
-    *
-    * @param  \App\Models\Categoria  $categoria
-    * @return \Illuminate\Http\Response
-    */
+
    public function destroy(Categoria $categoria)
    {
       $categoria->delete();
