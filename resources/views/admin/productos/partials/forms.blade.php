@@ -59,15 +59,15 @@
 
 <div class="form-group">
 
-    {{ Form::label("alm_id","Almacen") }}
-    {{ Form::select("alm_id",$almacenes,null,["class"=>"form-control"]) }}
+    {{ Form::label("almacen_id","Almacen") }}
+    {{ Form::select("almacen_id",$almacenes,null,["class"=>"form-control"]) }}
 
 </div>
 
 <div class="form-group">
 
-    {{ Form::label("cat_id","Categoria") }}
-    {{ Form::select("cat_id",$categorias,null,["class"=>"form-control"]) }}
+    {{ Form::label("categoria_id","Categoria") }}
+    {{ Form::select("categoria_id",$categorias,null,["class"=>"form-control"]) }}
 
 </div>
 
@@ -80,8 +80,8 @@
 
 <div class="form-group">
 
-    {{ Form::label("prov_id","Proveedores") }}
-    {{ Form::select("prov_id",$proveedores,null,["class"=>"form-control"]) }}
+    {{ Form::label("proveedor_id","Proveedores") }}
+    {{ Form::select("proveedor_id",$proveedores,null,["class"=>"form-control"]) }}
 
 </div>
 

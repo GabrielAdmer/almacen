@@ -69,7 +69,7 @@ class EmpleadoController extends Controller
     */
    public function show(Empleado $empleado)
    {
-      //
+      return view('admin.empleados.show', compact('empleado'));
    }
 
    /**

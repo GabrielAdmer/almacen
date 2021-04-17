@@ -3,7 +3,14 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Listado de proveedores</h1>
+     <div class="d-flex  justify-content-between" >
+       <h1>Listado de Proveedores</h1>
+      <div>
+            @can('admin.proveedor.create')
+              <a class="btn btn-dark" href="{{ route('admin.proveedor.create') }}" >Crear Proveedor</a>
+           @endcan
+      </div>
+    </div>
 @stop
 
 @section('content')
@@ -15,19 +22,15 @@
     
    <div class="card">
 
-      <div class="card-body" >
-         <a class="btn btn-outline-dark btn-sm" href="{{ route('admin.proveedor.create') }}" >Crear Proveedor</a>
-      </div>
-
       <div class="card-body">
          <table class="table" >
             <thead>
                <tr> 
                   <td>Id</td>
                   <td>Nombre</td>
-                  <td>Ver</td>
-                  <td>Editar</td>
-                  <td>Eliminar</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
                </tr>
             </thead>
 
@@ -36,19 +39,19 @@
                    <tr>
                       <td>{{ $proveedor->id }}</td>
                       <td>{{ $proveedor->prov_nombre }}</td>
-                      <td width="100px">
+                      <td width="10px">
                          @can('admin.proveedor.show')
-                             <a class="btn btn-success btn-sm" href="{{ route('admin.proveedor.show',$proveedor) }}">Ver</a> 
+                             <a class="btn btn-info btn-sm" href="{{ route('admin.proveedor.show',$proveedor) }}">Ver</a> 
                          @endcan
                       </td>
-                      <td width="100px"> 
+                      <td width="10px"> 
                          @can('admin.proveedor.edit')
                             <a class="btn btn-success btn-sm" href="{{ route('admin.proveedor.edit',$proveedor) }}">Editar</a>
                          @endcan 
                      </td>
 
 
-                      <td width="100px"> 
+                      <td width="10px"> 
                           @can("admin.proveedor.destroy")
                               <form action="{{route("admin.proveedor.destroy",$proveedor)}}" method="POST" >
                                  @csrf

@@ -3,7 +3,14 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <div class="d-flex  justify-content-between" >
+       <h1>Listado de Almacenes</h1>
+      <div>
+            @can('admin.almacens.create')
+               <a class="btn btn btn-dark" href="{{route("admin.almacens.create")}}">Agregar Almacen</a>
+           @endcan
+      </div>
+    </div>
 @stop
 
 @section('content')
@@ -15,13 +22,6 @@
     @endif
 
     <div class="card">
-
-        <div class="card-header">
-           @can('admin.almacens.create')
-               <a class="btn btn btn-dark" href="{{route("admin.almacens.create")}}">Agregar Almacen</a>
-           @endcan
-         </div>
-         
         <div class="card-body">
 
             <table class="table">
@@ -43,14 +43,14 @@
                             <td>{{ $almacen->alm_ubicacion }}</td>
                              <td width="10px">
                                @can('admin.almacens.show')
-                                   <a class="btn btn-sm btn-warning" href="{{route("admin.almacens.show",$almacen)}}">
+                                   <a class="btn btn-sm btn-info" href="{{route("admin.almacens.show",$almacen)}}">
                                     Ver
                                     </a>
                                @endcan
                             </td>
                             <td width="10px">
                                @can('admin.almacens.edit')
-                                   <a class="btn btn-sm btn-warning" href="{{route("admin.almacens.edit",$almacen)}}">
+                                   <a class="btn btn-sm btn-success" href="{{route("admin.almacens.edit",$almacen)}}">
                                     Editar
                                 </a>
                                @endcan

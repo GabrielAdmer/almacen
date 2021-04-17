@@ -4,7 +4,14 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Listado de Productos</h1>
+     <div class="d-flex  justify-content-between" >
+       <h1>Listado de Productos</h1>
+      <div>
+            @can('admin.productos.create')
+               <a class="btn btn btn-dark" href="{{route("admin.productos.create")}}">Agregar Productos</a>
+           @endcan
+      </div>
+    </div>
 @stop
 
 @section('css')
@@ -23,13 +30,7 @@
 
     <div class="card">
 
-        <div class="card-header">
-            <a class="btn btn btn-dark" href="{{route("admin.productos.create")}}">Agregar Productos</a>
-         </div>
-         
-        <div class="card-body">
-
-             
+        <div class="card-body">             
 
             <table class="table" id="example">
                 <thead>

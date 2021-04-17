@@ -9,7 +9,14 @@
 @endsection
 
 @section('content_header')
-    <h1>Listado de Prestamos</h1>
+       <div class="d-flex  justify-content-between" >
+       <h1>Listado de Prestamos</h1>
+      <div>
+            @can('admin.prestamos.create')
+               <a class="btn btn btn-dark" href="{{route("admin.prestamos.create")}}">Agregar Prestamos</a>
+           @endcan
+      </div>
+    </div>
 @stop
 
 @section('content')
@@ -22,10 +29,6 @@
 @endif
 
 <div class="card">
-
-    <div class="card-header">
-        <a class="btn btn btn-dark" href="{{route("admin.prestamos.create")}}">Agregar Prestamos</a>
-     </div>
      
     <div class="card-body">
 

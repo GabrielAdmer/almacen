@@ -3,7 +3,14 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Lista de empleados</h1>
+   <div class="d-flex  justify-content-between" >
+       <h1>Listado de Empleados</h1>
+      <div>
+            @can('admin.empleados.create')
+              <a class="btn btn btn-dark" href="{{route("admin.empleados.create")}}">Agregar Empleado</a>
+           @endcan
+      </div>
+    </div>
 @stop
 
 @section('content')
@@ -17,10 +24,6 @@
     @endif
 
     <div class="card">
-
-        <div class="card-header">
-            <a class="btn btn btn-dark" href="{{route("admin.empleados.create")}}">Agregar Empleado</a>
-         </div>
          
         <div class="card-body">
     
@@ -32,6 +35,7 @@
                         <th>Apellido</th>
                         <th>Apellido</th>
                         <th>Lugar</th>
+                        <th span="3"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -52,7 +56,7 @@
                             </td>
                             <td width="10px">
                                 @can("admin.empleados.edit")
-                                    <a class="btn btn-sm btn-warning" href="{{route("admin.empleados.edit",$empleados[$i]->id)}}">
+                                    <a class="btn btn-sm btn-success" href="{{route("admin.empleados.edit",$empleados[$i]->id)}}">
                                        Editar
                                     </a>
                                 @endcan

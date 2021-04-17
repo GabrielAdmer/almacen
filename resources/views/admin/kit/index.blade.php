@@ -3,7 +3,12 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Listado de Kits</h1>
+    <div class="d-flex  justify-content-between" >
+       <h1>Listado de Kits</h1>
+      <div>
+            <a class="btn btn-dark" href="{{ route('admin.kits.create') }}" >Crear Kit</a>
+      </div>
+    </div>
 @stop
 
 @section('content')
@@ -15,11 +20,6 @@
     @endif
     
    <div class="card">
-
-      <div class="card-body" >
-         <a class="btn btn-outline-dark btn-sm" href="{{ route('admin.kits.create') }}" >Crear Kit</a>
-      </div>
-
       <div class="card-body">
          <table class="table" >
             <thead>
@@ -27,8 +27,9 @@
                   <td>Id</td>
                   <td>Nombre</td>
                   <td>Cantidad Piezas</td>
-                  <td>Editar</td>
-                  <td>Eliminar</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
                </tr>
             </thead>
 
@@ -38,19 +39,19 @@
                      <td>{{ $kit->id }}</td>
                      <td>{{ $kit->kit_nombre }}</td>
                      <td>{{ $kit->kit_cantidad_piezas }}</td>
-                     <td width="100px"> 
+                     <td width="10px"> 
                         @can('admin.kits.show')
-                           <a class="btn btn-success btn-sm" href="{{ route('admin.kits.show',$kit) }}">Ver</a> 
+                           <a class="btn btn-info btn-sm" href="{{ route('admin.kits.show',$kit) }}">Ver</a> 
                         @endcan
                      </td>
-                     <td width="100px">
+                     <td width="10px">
                           @can('admin.kits.edit')
                               <a class="btn btn-success btn-sm" href="{{ route('admin.kits.edit',$kit) }}">Editar</a>
                           @endcan 
                      </td>
 
 
-                      <td width="100px"> 
+                      <td width="10px"> 
                           @can("admin.kits.destroy")
                               <form action="{{route("admin.kits.destroy",$kit)}}" method="POST" >
                                  @csrf

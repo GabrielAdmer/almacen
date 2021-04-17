@@ -3,7 +3,14 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Listado de categorias</h1>
+  <div class="d-flex  justify-content-between" >
+       <h1>Listado de Almacenes</h1>
+      <div>
+            @can('admin.categorias.create')
+               <a class="btn btn btn-dark" href="{{route("admin.categorias.create")}}">Agregar Categoria</a>
+           @endcan
+      </div>
+    </div>
 @stop
 
 @section('content')
@@ -16,19 +23,13 @@
 
     <div class="card">
         <div class="card-body">
-
-            <div class="card-header">
-                <a class="btn btn btn-dark" href="{{route("admin.categorias.create")}}">Agregar Categoria</a>
-             </div>
-             
-
             <table class="table">
                 <thead>
                     <tr>
                         <th>Id</th>
                         <th>Nombre</th>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,14 +39,14 @@
                             <td>{{ $categoria->cat_nombre }}</td>
                            <td width="10px">
                               @can('admin.categorias.show')
-                                 <a class="btn btn-sm btn-warning" href="{{route("admin.categorias.show",$categoria)}}">
+                                 <a class="btn btn-sm btn-info" href="{{route("admin.categorias.show",$categoria)}}">
                                     Ver
                                   </a>
                               @endcan
                            </td>
                             <td width="10px">
                                 @can('admin.categorias.edit')
-                                     <a class="btn btn-sm btn-warning" href="{{route("admin.categorias.edit",$categoria)}}">
+                                     <a class="btn btn-sm btn-success" href="{{route("admin.categorias.edit",$categoria)}}">
                                        Editar
                                     </a>
                                 @endcan

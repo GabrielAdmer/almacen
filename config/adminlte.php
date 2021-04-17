@@ -253,37 +253,37 @@ return [
       [
          'text' => 'Kit',
          'url'  => 'admin/kits',
-         'icon' => 'fas fa-fw fa-user',
+         'icon' => 'fab fa-fw fa-uikit',
          'can'  => 'admin.kits.index',
       ],
       [
          'text' => 'Almacenes',
          'url'  => 'admin/almacens',
-         'icon' => 'fas fa-fw fa-lock',
+         'icon' => 'fas fa-fw fa-cubes',
          'can'  => 'admin.almacens.index',
       ],
       [
          'text' => 'Categorias',
          'url'  => 'admin/categorias',
-         'icon' => 'fas fa-fw fa-lock',
+         'icon' => 'fas fa-fw fa-ethernet',
          'can'  => 'admin.categorias.index',
       ],
       [
          'text' => 'Proveedores',
          'url'  => 'admin/proveedor',
-         'icon' => 'fas fa-fw fa-lock',
+         'icon' => 'fas fa-fw fa-project-diagram',
          'can'  => 'admin.proveedor.index',
       ],
       [
          'text' => 'Productos',
          'url'  => 'admin/productos',
-         'icon' => 'fas fa-fw fa-lock',
+         'icon' => 'fas fa-fw fa-shopping-cart',
          'can'  => 'admin.productos.index',
       ],
       [
          'text' => 'Empleados',
          'url'  => 'admin/empleados',
-         'icon' => 'fas fa-fw fa-lock',
+         'icon' => 'fas fa-fw fa-people-carry',
          'can'  => 'admin.empleados.index',
       ],
       [
@@ -298,63 +298,10 @@ return [
       [
          'text' => 'Prestamos',
          'url'  => 'admin/prestamos',
-         'icon' => 'fas fa-fw fa-lock',
+         'icon' => 'fab fa-fw fa-leanpub',
          'can'  => 'admin.prestamos.index',
       ],
-      [
-         'text'    => 'multilevel',
-         'icon'    => 'fas fa-fw fa-share',
-         'submenu' => [
-            [
-               'text' => 'level_one',
-               'url'  => '#',
-            ],
-            [
-               'text'    => 'level_one',
-               'url'     => '#',
-               'submenu' => [
-                  [
-                     'text' => 'level_two',
-                     'url'  => '#',
-                  ],
-                  [
-                     'text'    => 'level_two',
-                     'url'     => '#',
-                     'submenu' => [
-                        [
-                           'text' => 'level_three',
-                           'url'  => '#',
-                        ],
-                        [
-                           'text' => 'level_three',
-                           'url'  => '#',
-                        ],
-                     ],
-                  ],
-               ],
-            ],
-            [
-               'text' => 'level_one',
-               'url'  => '#',
-            ],
-         ],
-      ],
-      ['header' => 'labels'],
-      [
-         'text'       => 'important',
-         'icon_color' => 'red',
-         'url'        => '#',
-      ],
-      [
-         'text'       => 'warning',
-         'icon_color' => 'yellow',
-         'url'        => '#',
-      ],
-      [
-         'text'       => 'information',
-         'icon_color' => 'cyan',
-         'url'        => '#',
-      ],
+
    ],
 
    /*
