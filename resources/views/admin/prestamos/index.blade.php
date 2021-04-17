@@ -31,6 +31,9 @@
 <div class="card">
      
     <div class="card-body">
+        <div id="buttons" >
+
+        </div>
 
         <table class="table" id="example">
             <thead>
@@ -86,21 +89,30 @@
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+    
+ 
 @stop
 
 @section('js')
    <script src="https://code.jquery.com/jquery}-3.5.1.js" defer ></script>
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js" defer ></script>
-    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js" defer ></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js" defer ></script> 
+
+   
 
     <script>
             $(document).ready(function() {
                 $('#example').DataTable({
                     "language": {
                                 "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
-                                }
+                                },
+                    responsive:"true",
+
                 });
                 
              } );
     </script>
 @stop
+
+
+ 
